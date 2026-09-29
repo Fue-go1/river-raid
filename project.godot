@@ -222,6 +222,8 @@ joypads/ignore_joypad_on_unfocused_application=true
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="WorldBoundary"
+2d_physics/layer_3="Missile"
+2d_physics/layer_4="EnemyHelicopter"
 
 [physics]
 

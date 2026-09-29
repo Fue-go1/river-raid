@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dxhd8jcx1j0r4"]
+
+[ext_resource type="Script" uid="uid://ceh3m02wpix1t" path="res://Scripts/enemy_heli.gd" id="1_2x1rl"]
+[ext_resource type="Texture2D" uid="uid://blox6cpm3mudh" path="res://icon.svg" id="2_r2er3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j64g3"]
+radius = 22.0
+
+[node name="Enemy_Heli" type="CharacterBody2D" unique_id=332001213]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_2x1rl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1573225883]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_r2er3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1099834847]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1759989273]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=203139071]
+shape = SubResource("CircleShape2D_j64g3")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
