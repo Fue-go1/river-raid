@@ -21,4 +21,4 @@ shape = SubResource("CircleShape2D_j64g3")
 
 [node name="Fired" type="Marker2D" parent="." unique_id=2006598293]
 unique_name_in_owner = true
-position = Vector2(0, -54)
+position = Vector2(0, -55)

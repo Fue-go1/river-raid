@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("shoot"):
 		var missile_fired = missile.instantiate()
-		missile_fired.set_global_position = Vector2(%Fired.global_position.x, %Fired.global_position.y)
+		missile_fired.global_position = Vector2(%Fired.global_position.x, %Fired.global_position.y)
 		get_parent().add_child(missile_fired)
 		print("SHOT")
 		pass

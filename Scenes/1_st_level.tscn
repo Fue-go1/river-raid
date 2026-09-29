@@ -6,7 +6,7 @@
 
 [node name="1st_level" type="Node2D" unique_id=305914730]
 script = ExtResource("1_tocyb")
-speed = 150
+speed = 70
 
 [node name="Parallax" type="Node2D" parent="." unique_id=66075564]
 
@@ -20,4 +20,4 @@ texture = ExtResource("2_tocyb")
 [node name="Player" parent="." unique_id=896704080 instance=ExtResource("1_s2r22")]
 position = Vector2(579, 599)
 collision_mask = 2
-speed = 250
+speed = 350
