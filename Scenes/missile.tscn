@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://kt2xd513q2rj"]
+
+[ext_resource type="Script" uid="uid://bb82o6rb3p88r" path="res://Scripts/bullet.gd" id="1_u28tq"]
+[ext_resource type="Texture2D" uid="uid://blox6cpm3mudh" path="res://icon.svg" id="2_bkb3y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j64g3"]
+radius = 25.0
+height = 118.0
+
+[node name="Missile" type="Area2D" unique_id=1331860002]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_u28tq")
+speed = 250
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1574070645]
+scale = Vector2(0.48046872, 1)
+texture = ExtResource("2_bkb3y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=592627861]
+shape = SubResource("CapsuleShape2D_j64g3")

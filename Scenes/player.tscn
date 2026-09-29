@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d0d8kxgaalns5"]
+
+[ext_resource type="Script" uid="uid://bc4vmo2baflik" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://blox6cpm3mudh" path="res://icon.svg" id="1_v0iea"]
+[ext_resource type="PackedScene" uid="uid://kt2xd513q2rj" path="res://Scenes/missile.tscn" id="2_6t5aa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j64g3"]
+radius = 29.017237
+
+[node name="Player" type="CharacterBody2D" unique_id=896704080]
+script = ExtResource("1_cvnsp")
+speed = 35
+missile = ExtResource("2_6t5aa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1977238461]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_v0iea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=397619283]
+shape = SubResource("CircleShape2D_j64g3")
+
+[node name="Fired" type="Marker2D" parent="." unique_id=2006598293]
+unique_name_in_owner = true
+position = Vector2(0, -54)
