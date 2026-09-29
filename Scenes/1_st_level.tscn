@@ -10,14 +10,20 @@ speed = 70
 
 [node name="Parallax" type="Node2D" parent="." unique_id=66075564]
 
-[node name="Parallax2D" type="Parallax2D" parent="Parallax" unique_id=1104203885]
-scroll_offset = Vector2(0, 597)
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Parallax" unique_id=1468606286]
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=524455092]
-position = Vector2(585, 71)
-texture = ExtResource("2_tocyb")
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax/ParallaxBackground" unique_id=73231671]
+motion_mirroring = Vector2(0, 648)
 
-[node name="Player" parent="." unique_id=896704080 instance=ExtResource("1_s2r22")]
+[node name="Player" parent="Parallax/ParallaxBackground" unique_id=896704080 instance=ExtResource("1_s2r22")]
 position = Vector2(579, 599)
 collision_mask = 2
 speed = 350
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=60557148]
+position = Vector2(579, 73)
+texture = ExtResource("2_tocyb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1889366019]
+position = Vector2(579, -229)
+texture = ExtResource("2_tocyb")
