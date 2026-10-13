@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dtbh57lh30bni"]
+
+[ext_resource type="Texture2D" uid="uid://bcs5fo0tk4d44" path="res://Assets/Sprites/River.png" id="1_5gpx2"]
+
+[node name="river" type="Node2D" unique_id=195238596]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1209738222]
+scale = Vector2(3, 3)
+texture = ExtResource("1_5gpx2")

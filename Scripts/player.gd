@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+class_name Player
 @export var speed: int
 @export var missile: PackedScene
 @export var cooldown: int
@@ -25,5 +26,6 @@ func _process(delta: float) -> void:
 		pass
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	$".".queue_free()
+	%Player.queue_free()
+	%Enemy_Heli.queue_free()
 	pass # Replace with function body.

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ch2h8ll3gcgnd"]
+
+[ext_resource type="Script" uid="uid://c4k27vuesms28" path="res://Scripts/spawner.gd" id="1_mdv8j"]
+[ext_resource type="PackedScene" uid="uid://dtbh57lh30bni" path="res://Scenes/river.tscn" id="2_xhbpr"]
+
+[node name="spawner" type="Node2D" unique_id=1079706866]
+z_index = -1
+script = ExtResource("1_mdv8j")
+water = ExtResource("2_xhbpr")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=2141129992]
+unique_name_in_owner = true
+position = Vector2(579, 646)
+
+[node name="Marker2D1_1" type="Marker2D" parent="." unique_id=815971231]
+unique_name_in_owner = true
+position = Vector2(515, 1)
