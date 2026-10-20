@@ -61,6 +61,6 @@ water = ExtResource("6_ui1hf")
 unique_name_in_owner = true
 position = Vector2(579, 646)
 
-[node name="Marker2D1_1" type="Marker2D" parent="spawner" unique_id=1137522112]
+[node name="Marker2D2" type="Marker2D" parent="spawner" unique_id=1137522112]
 unique_name_in_owner = true
 position = Vector2(515, 1)
