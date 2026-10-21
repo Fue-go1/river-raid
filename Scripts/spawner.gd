@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 		print("WaterBlocks:" + str(num_of_insta))
 		print(water1)
 		add_child(water1)
-		const rand_y: int = -1000
+		var rand_y: int = -1000
 		water1.global_position = Vector2(%Marker2D.global_position.x, randi_range(646, rand_y))
 		water1.global_position.x += addpoints
 		print(num_of_insta)
