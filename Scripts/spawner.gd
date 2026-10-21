@@ -1,38 +1,58 @@
 extends Node2D
-
 @export var water: PackedScene
 
-var addpoints: int = 80:
-	set(value):
-		addpoints = clamp(value, 20, 80)
-		pass
+var addpoints: int
+var subpoints: int
 var num_of_insta: int
+var water1
 #const rand_y: int = -1000
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
-	for num_of_insta in 200:
-		var water1 = water.instantiate()
-		print("WaterBlocks:" + str(num_of_insta))
-		print(water1)
-		add_child(water1)
-		var rand_y: int = -1000
-		water1.global_position = Vector2(%Marker2D.global_position.x, randi_range(646, rand_y))
-		print("WaterPOSITION: " + str(water1.global_position))
-		print(num_of_insta)
-	
-	#for i in randi() % 10000:
+	#for num_of_insta in 500:
+		#print(str(addpoints))
 		#var water1 = water.instantiate()
+		#print("WaterBlocks:" + str(num_of_insta))
+		#print(water1)
 		#add_child(water1)
-		#var rand_y: int = -300
-		#water1.global_position = Vector2(%Marker2D.global_position.x, randi_range(646, rand_y))
-		#add_child(water2)
-		#water1.global_position = Vector2(randi_range(%Marker2D.global_position.x, %Marker2D.global_position.y), 
-		#randi_range(%Marker2D2.global_position.x, %Marker2D2.global_position.y))
-		#water2.global_position = Vector2(randi_range(643, 900), randi_range(647, 0))
+		#var rand_y: int = -1000
+		#water1.global_position = Vector2(%Marker2D.global_position.x + addpoints, randi_range(646, rand_y))
+		#print(num_of_insta)
+		#print("WaterPOSITION: " + str(water1.global_position))
+		#if num_of_insta == 50:
+			#%Marker2D.global_position.x = 700
+			#water1.global_position = Vector2(%Marker2D.global_position.x, randi_range(646, rand_y))
+			#print("REACHED")
 		pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	for num_of_insta in 20:
+		print(str(addpoints))
+		water1 = water.instantiate()
+		print("WaterBlocks:" + str(num_of_insta))
+		print(water1)
+		add_child(water1)
+		const rand_y: int = -1000
+		water1.global_position = Vector2(%Marker2D.global_position.x, randi_range(646, rand_y))
+		water1.global_position.x += addpoints
+		print(num_of_insta)
+		
+	#print("LEVEL POS: " + str($"..".position))
+	#print("POINTS: " + str(addpoints))
+	#if $"..".position > Vector2(0.0, 150.0000):
+		#%Marker2D.global_position.x += addpoints
+		#_add_pos_x()
+
+
+func _on_add_points_timeout() -> void:
+	addpoints += 20
+	pass # Replace with function body.
+
+func _add_pos_x() -> void:	
 	pass
+
+func _on_despawner_body_entered(body: Node2D) -> void:
+	water1.queue_free()
+	pass # Replace with function body.

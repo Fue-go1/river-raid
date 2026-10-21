@@ -13,7 +13,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
+	if $".".position >= Vector2(0, 500):
+		print("JFIDS")
+		pass
+	#print("Level Pos: " + str($".".position))
 	#print(str(speed))
 	position -= dir * speed * delta
 	

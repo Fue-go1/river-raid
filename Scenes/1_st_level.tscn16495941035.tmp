@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://coqjsiywutaqf"]
+
+[ext_resource type="PackedScene" uid="uid://d0d8kxgaalns5" path="res://Scenes/player.tscn" id="1_s2r22"]
+[ext_resource type="Script" uid="uid://b2jwrfqarwgfq" path="res://Scripts/1_st_level.gd" id="1_tocyb"]
+[ext_resource type="PackedScene" uid="uid://dndkp48b50jpv" path="res://Scenes/rng_setter.tscn" id="2_huktk"]
+[ext_resource type="Texture2D" uid="uid://blox6cpm3mudh" path="res://icon.svg" id="2_tocyb"]
+[ext_resource type="Script" uid="uid://dldht7v3qx45g" path="res://Scripts/rng_setter.gd" id="3_dc030"]
+[ext_resource type="PackedScene" uid="uid://dxhd8jcx1j0r4" path="res://Scenes/enemy_heli.tscn" id="4_twr6v"]
+[ext_resource type="Script" uid="uid://c4k27vuesms28" path="res://Scripts/spawner.gd" id="5_h84hv"]
+[ext_resource type="PackedScene" uid="uid://dtbh57lh30bni" path="res://Scenes/river.tscn" id="6_ui1hf"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_j64g3"]
+b = Vector2(0, 1154)
+
+[node name="1st_level" type="Node2D" unique_id=305914730]
+script = ExtResource("1_tocyb")
+
+[node name="rngSetter" parent="." unique_id=1211582390 instance=ExtResource("2_huktk")]
+script = ExtResource("3_dc030")
+seedName = "1"
+
+[node name="World" type="Node2D" parent="." unique_id=66075564]
+position = Vector2(0, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="World" unique_id=1468606286]
+layer = 1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="World/ParallaxBackground" unique_id=73231671]
+unique_name_in_owner = true
+motion_mirroring = Vector2(0, 648)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="World/ParallaxBackground/ParallaxLayer" unique_id=357296139]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/ParallaxBackground/ParallaxLayer/StaticBody2D" unique_id=1382164380]
+position = Vector2(0, 649)
+rotation = -1.5707964
+shape = SubResource("SegmentShape2D_j64g3")
+
+[node name="Player" parent="World/ParallaxBackground" unique_id=896704080 instance=ExtResource("1_s2r22")]
+unique_name_in_owner = true
+position = Vector2(579, 614)
+collision_mask = 2
+speed = 350
+cooldown = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=60557148]
+position = Vector2(579, 73)
+texture = ExtResource("2_tocyb")
+
+[node name="Enemy_Heli" parent="." unique_id=332001213 instance=ExtResource("4_twr6v")]
+unique_name_in_owner = true
+position = Vector2(714, -160)
+
+[node name="spawner" type="Node2D" parent="." unique_id=471954851]
+z_index = -1
+script = ExtResource("5_h84hv")
+water = ExtResource("6_ui1hf")
+
+[node name="Marker2D" type="Marker2D" parent="spawner" unique_id=701040525]
+unique_name_in_owner = true
+position = Vector2(579, 646)
+
+[node name="Marker2D2" type="Marker2D" parent="spawner" unique_id=1137522112]
+unique_name_in_owner = true
+position = Vector2(515, 1)
+
+[node name="Add_points" type="Timer" parent="." unique_id=401906319]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="Add_points" to="spawner" method="_on_add_points_timeout"]

@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dxhd8jcx1j0r4" path="res://Scenes/enemy_heli.tscn" id="4_twr6v"]
 [ext_resource type="Script" uid="uid://c4k27vuesms28" path="res://Scripts/spawner.gd" id="5_h84hv"]
 [ext_resource type="PackedScene" uid="uid://dtbh57lh30bni" path="res://Scenes/river.tscn" id="6_ui1hf"]
+[ext_resource type="PackedScene" uid="uid://7dua2oxv1b33" path="res://Scenes/despawner.tscn" id="9_dc030"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_j64g3"]
 b = Vector2(0, 1154)
@@ -37,6 +38,11 @@ position = Vector2(0, 649)
 rotation = -1.5707964
 shape = SubResource("SegmentShape2D_j64g3")
 
+[node name="Despawner" parent="World/ParallaxBackground" unique_id=1370102499 instance=ExtResource("9_dc030")]
+position = Vector2(547, 548)
+collision_layer = 32
+collision_mask = 16
+
 [node name="Player" parent="World/ParallaxBackground" unique_id=896704080 instance=ExtResource("1_s2r22")]
 unique_name_in_owner = true
 position = Vector2(579, 614)
@@ -64,3 +70,10 @@ position = Vector2(579, 646)
 [node name="Marker2D2" type="Marker2D" parent="spawner" unique_id=1137522112]
 unique_name_in_owner = true
 position = Vector2(515, 1)
+
+[node name="Add_points" type="Timer" parent="." unique_id=401906319]
+wait_time = 4.0
+autostart = true
+
+[connection signal="body_entered" from="World/ParallaxBackground/Despawner" to="spawner" method="_on_despawner_body_entered"]
+[connection signal="timeout" from="Add_points" to="spawner" method="_on_add_points_timeout"]

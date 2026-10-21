@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://7dua2oxv1b33"]
+
+[ext_resource type="Script" uid="uid://dhnd0bqvu51qy" path="res://Scripts/despawner.gd" id="1_jj047"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j64g3"]
+height = 1472.0
+
+[node name="Despawner" type="Area2D" unique_id=1370102499]
+script = ExtResource("1_jj047")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=128425637]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_j64g3")
