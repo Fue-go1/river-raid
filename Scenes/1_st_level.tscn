@@ -75,5 +75,9 @@ position = Vector2(515, 1)
 wait_time = 4.0
 autostart = true
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=1603601661]
+rect = Rect2(-10, -10, 1168, 662)
+
 [connection signal="body_entered" from="World/ParallaxBackground/Despawner" to="spawner" method="_on_despawner_body_entered"]
 [connection signal="timeout" from="Add_points" to="spawner" method="_on_add_points_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_entered"]
