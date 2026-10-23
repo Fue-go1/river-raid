@@ -5,6 +5,7 @@ var addpoints: int
 var subpoints: int
 var num_of_insta: int
 var water1
+var direction_num: float
 #const rand_y: int = -1000
 # Called when the node enters the scene tree for the first time.
 
@@ -38,20 +39,17 @@ func _process(delta: float) -> void:
 		water1.global_position = Vector2(%Marker2D.global_position.x, randi_range(646, rand_y))
 		water1.global_position.x += addpoints
 		print(num_of_insta)
-		
-	#print("LEVEL POS: " + str($"..".position))
-	#print("POINTS: " + str(addpoints))
-	#if $"..".position > Vector2(0.0, 150.0000):
-		#%Marker2D.global_position.x += addpoints
-		#_add_pos_x()
 
 
 func _on_add_points_timeout() -> void:
-	addpoints += 20
+	#print("DIR NUM: " + str(direction_num))
+	direction_num = randf_range(0.0, 1.0)
+	if direction_num >= 0.0 and direction_num < 0.5:
+		addpoints -= 50 # Creates water to the right
+	else:
+		addpoints += 20 # Creates water to the left
 	pass # Replace with function body.
 
-func _add_pos_x() -> void:	
-	pass
 
 func _on_despawner_body_entered(body: Node2D) -> void:
 	water1.queue_free()
