@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cqbpas6gexeen"]
+
+[ext_resource type="Script" uid="uid://c2c8c43vup5tm" path="res://Scripts/change_path_zone.gd" id="1_lagfw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bkub2"]
+height = 1020.0
+
+[node name="Change_path_zone" type="Area2D" unique_id=1834090505]
+script = ExtResource("1_lagfw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=82627613]
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_bkub2")

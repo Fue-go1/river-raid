@@ -1,5 +1,6 @@
 extends Node2D
 @export var water: PackedScene
+@export var change_path: PackedScene
 
 var addpoints: int
 var subpoints: int
@@ -10,21 +11,8 @@ var direction_num: float
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
-	#for num_of_insta in 500:
-		#print(str(addpoints))
-		#var water1 = water.instantiate()
-		#print("WaterBlocks:" + str(num_of_insta))
-		#print(water1)
-		#add_child(water1)
-		#var rand_y: int = -1000
-		#water1.global_position = Vector2(%Marker2D.global_position.x + addpoints, randi_range(646, rand_y))
-		#print(num_of_insta)
-		#print("WaterPOSITION: " + str(water1.global_position))
-		#if num_of_insta == 50:
-			#%Marker2D.global_position.x = 700
-			#water1.global_position = Vector2(%Marker2D.global_position.x, randi_range(646, rand_y))
-			#print("REACHED")
-		pass
+	change_path_spawner()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,7 +26,8 @@ func _process(delta: float) -> void:
 		var rand_y: int = -1000
 		water1.global_position = Vector2(%Marker2D.global_position.x, randi_range(646, rand_y))
 		water1.global_position.x += addpoints
-		print(num_of_insta)
+		#print(num_of_insta)
+		
 
 
 func _on_add_points_timeout() -> void:
@@ -47,10 +36,11 @@ func _on_add_points_timeout() -> void:
 	if direction_num >= 0.0 and direction_num < 0.5:
 		addpoints -= 50 # Creates water to the right
 	else:
-		addpoints += 20 # Creates water to the left
+		addpoints += 30 # Creates water to the left
 	pass # Replace with function body.
 
-
-func _on_despawner_body_entered(body: Node2D) -> void:
-	water1.queue_free()
-	pass # Replace with function body.
+func change_path_spawner() -> void:
+	var change_path1 = change_path.instantiate()
+	change_path1.global_position = Vector2(%Change_path1.global_position.x, %Change_path1.global_position.y)
+	add_child(change_path1)
+	pass
