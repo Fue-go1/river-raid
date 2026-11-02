@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 
 
 func _on_add_points_timeout() -> void:
+	##
 	#print("DIR NUM: " + str(direction_num))
 	direction_num = randf_range(0.0, 1.0)
 	if direction_num >= 0.0 and direction_num < 0.5:
