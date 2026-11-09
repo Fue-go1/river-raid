@@ -26,8 +26,3 @@ func _process(delta: float) -> void:
 		speed-=15
 		pass
 	pass
-
-
-func _on_visible_on_screen_enabler_2d_screen_entered() -> void:
-	print("SCREENED")
-	pass # Replace with function body.

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ycwnwnbuaqeh"]
+
+[node name="Display_FPS" type="Label" unique_id=1018351672]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FPS: "

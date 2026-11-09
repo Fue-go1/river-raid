@@ -6,9 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://blox6cpm3mudh" path="res://icon.svg" id="2_tocyb"]
 [ext_resource type="Script" uid="uid://dldht7v3qx45g" path="res://Scripts/rng_setter.gd" id="3_dc030"]
 [ext_resource type="PackedScene" uid="uid://dxhd8jcx1j0r4" path="res://Scenes/enemy_heli.tscn" id="4_twr6v"]
+[ext_resource type="PackedScene" uid="uid://ycwnwnbuaqeh" path="res://Scenes/display_fps.tscn" id="5_es6jh"]
 [ext_resource type="Script" uid="uid://c4k27vuesms28" path="res://Scripts/spawner.gd" id="5_h84hv"]
+[ext_resource type="Script" uid="uid://dgmvw67lj7rem" path="res://Scripts/display_fps.gd" id="6_l63c7"]
 [ext_resource type="PackedScene" uid="uid://dtbh57lh30bni" path="res://Scenes/river.tscn" id="6_ui1hf"]
 [ext_resource type="PackedScene" uid="uid://cqbpas6gexeen" path="res://Scenes/change_path_zone.tscn" id="9_dc030"]
+[ext_resource type="PackedScene" uid="uid://7dua2oxv1b33" path="res://Scenes/despawner.tscn" id="10_ocu4v"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_j64g3"]
 b = Vector2(0, 1154)
@@ -43,7 +46,11 @@ unique_name_in_owner = true
 position = Vector2(579, 614)
 collision_mask = 2
 speed = 350
-cooldown = 0
+
+[node name="Display_FPS" parent="World/ParallaxBackground" unique_id=1018351672 instance=ExtResource("5_es6jh")]
+unique_name_in_owner = true
+text = ""
+script = ExtResource("6_l63c7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=60557148]
 position = Vector2(579, 73)
@@ -75,4 +82,10 @@ position = Vector2(579, -98)
 unique_name_in_owner = true
 wait_time = 4.0
 
+[node name="Despawner" parent="." unique_id=1370102499 instance=ExtResource("10_ocu4v")]
+position = Vector2(579, 314)
+collision_layer = 32
+collision_mask = 16
+
 [connection signal="timeout" from="Add_points" to="spawner" method="_on_add_points_timeout"]
+[connection signal="body_entered" from="Despawner" to="spawner" method="_on_despawner_body_entered"]

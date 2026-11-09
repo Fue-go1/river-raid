@@ -45,3 +45,9 @@ func change_path_spawner() -> void:
 	change_path1.global_position = Vector2(%Change_path1.global_position.x, %Change_path1.global_position.y)
 	add_child(change_path1)
 	pass
+
+
+func _on_despawner_body_entered(body: Node2D) -> void:
+	if body == water:
+		water1.queue_free()
+	pass # Replace with function body.
